@@ -118,9 +118,9 @@ alias vim="nvim"
 alias python="python3"
 alias k=kubectl
 
-# path
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH=$PATH:$(go env GOPATH)/bin
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
 
 # functions
 ghql() {

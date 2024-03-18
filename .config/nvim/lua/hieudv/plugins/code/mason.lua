@@ -30,7 +30,6 @@ return {
 				"tsserver",
 				"html",
 				"cssls",
-				"tailwindcss",
 				"svelte",
 				"lua_ls",
 				"graphql",
