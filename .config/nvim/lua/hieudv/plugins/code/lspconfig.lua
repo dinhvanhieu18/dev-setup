@@ -178,5 +178,30 @@ return {
 				},
 			},
 		})
+
+		-- configure terraform
+		lspconfig["terraformls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+      filetypes = { 'terraform', 'terraform-vars', 'tf' },
+      root_dir = function(dirpath)
+        return util.root_pattern(".terraform", ".git")(dirpath) or util.path.dirname(dirpath)
+      end,
+		})
+
+    -- configure python server
+		lspconfig["yamlls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "yaml" },
+		})
+
+  --   -- configure helm
+		-- lspconfig["helm-ls"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+  --     filetypes = { 'helmfile', 'yaml' },
+		-- })
+
 	end,
 }
