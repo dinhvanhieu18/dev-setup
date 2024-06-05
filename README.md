@@ -22,8 +22,9 @@ https://docs.brew.sh/Homebrew-on-Linux
 ## Install oh-my-zsh
 > sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-## Install git
+## Install git, delta for git diff
 > brew install git
+> brew install git-delta
 
 ## Install powerlevel10k theme for oh-my-zsh
 > git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
