@@ -67,7 +67,7 @@ Note: Install node will install python too
 ## Install lazygit
 > brew install lazygit
 
-## Clone thisrepo and copy some config
+## Clone thisrepo and copy some config (or symlink to sync config from repo)
 - .config/nvim
 - .config/git
 - .config/lazygit
@@ -92,4 +92,4 @@ Install plugin
 
 
 # SRE/DevOps setup tools
-TODO
+kubectl, krew, k9s, helm, helmfile, terraform, ansible, gcloud, cmctl (cert manager ctl), ...
