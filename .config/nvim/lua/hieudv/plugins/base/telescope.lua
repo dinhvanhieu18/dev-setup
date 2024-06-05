@@ -23,7 +23,8 @@ return {
       },
       pickers = {
         find_files = {
-          hidden = true
+          hidden = true,
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
         },
         grep_string = {
           additional_args = {"--hidden"}
