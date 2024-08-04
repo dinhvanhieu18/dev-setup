@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search kubectl-autocomplete z)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting web-search kubectl-autocomplete z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -132,5 +132,21 @@ ghql() {
   fi
 }
 
+vpn-init() {
+    openvpn3 config-import --config ${VPN_PATH} --name vpn --persistent
+    openvpn3 config-manage --config vpn --allow-compression yes
+}
+vpn-connect() {
+    OTP=$(oathtool --totp -b $OTP_SECRET)
+    printf "$USER\n$PASSWORD\n$OTP\n" | openvpn3 session-start --config vpn
+}
+vpn-disconnect() {
+    openvpn3 session-manage --config vpn --disconnect
+}
+vpn-ls() {
+    openvpn3 sessions-list
+}
+
 # path
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export EDITOR=nvim
