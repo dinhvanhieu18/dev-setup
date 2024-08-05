@@ -65,8 +65,8 @@ Note: May need reboot after install
 Note: Install node will install python too
 > brew install node && brew install go && brew install lua && brew install luarocks
 
-## Install lazygit
-> brew install lazygit
+## Install lazygit, ghq
+> brew install lazygit && brew install ghq
 
 ## Clone thisrepo and copy some config (or symlink to sync config from repo)
 - .config/nvim
