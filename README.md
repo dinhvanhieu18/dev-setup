@@ -94,3 +94,17 @@ Install plugin
 
 # SRE/DevOps setup tools
 kubectl, krew, k9s, helm, helmfile, terraform, ansible, gcloud, cmctl (cert manager ctl), ...
+
+
+Note for setup in WSL2
+Config nerd-fronts: setting appreance font face
+
+Private registry: 
+- git config --global http.sslVerify false
+- git config --global url."https://oauth2:{{token}}@domain".insteadOf "https://domain"
+|
+
+Config apt proxy neu can
+Config curl proxy ney can: curl -x proxy --proxy-user ...
+Config apt proxy neu can
+Config curl proxy ney can: curl -x proxy --proxy-user ...
