@@ -89,6 +89,9 @@ Reload config
 
 Install plugin
 > <prefix> I
+
+Note: for yank copy between tmux and system clipboard:
+Install xlip and config tmux: set -g @clipboard "xclip" 
 # TODO: write bash script
 
 
