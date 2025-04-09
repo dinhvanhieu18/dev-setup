@@ -1,0 +1,21 @@
+#!/bin/bash
+# Wait for devices to be ready
+sleep 3
+
+# Try to find the touchpad (case-insensitive match)
+device_name=$(xinput list --name-only | grep -i "touchpad")
+
+if [[ -n "$device_name" ]]; then
+    # Get device ID
+    device_id=$(xinput list --id-only "$device_name")
+
+    # Check if "libinput Tapping Enabled" property exists
+    if xinput list-props "$device_id" | grep -q "libinput Tapping Enabled"; then
+        xinput set-prop "$device_id" "libinput Tapping Enabled" 1
+        echo "Tap-to-click enabled on '$device_name'" >> /tmp/touchpad.log
+    else
+        echo "Property 'libinput Tapping Enabled' not found for '$device_name'" >> /tmp/touchpad.log
+    fi
+else
+    echo "Touchpad device not found" >> /tmp/touchpad.log
+fi
