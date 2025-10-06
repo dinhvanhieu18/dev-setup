@@ -7,7 +7,7 @@ return {
 	},
 	config = function()
 		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
+		-- local lspconfig = require("lspconfig")
 
 		local util = require("lspconfig/util")
 
@@ -72,8 +72,9 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+		local cfg = vim.lsp.config
 		-- configure html server
-		lspconfig["html"].setup({
+		cfg("html", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -85,7 +86,7 @@ return {
 		-- })
 
 		-- configure css server
-		lspconfig["cssls"].setup({
+		cfg("cssls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -97,7 +98,7 @@ return {
 		-- })
 
 		-- configure svelte server
-		lspconfig["svelte"].setup({
+		cfg("svelte", {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
@@ -114,34 +115,34 @@ return {
 		})
 
 		-- configure prisma orm server
-		lspconfig["prismals"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		-- cfg.prismals.setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
 
 		-- configure graphql language server
-		lspconfig["graphql"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-		})
+		-- cfg.graphql.setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+		-- })
 
 		-- configure emmet language server
-		lspconfig["emmet_ls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-		})
+		-- cfg.emmet_ls({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+		-- })
 
 		-- configure python server
-		lspconfig["pyright"].setup({
+		cfg("pyright", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "python" },
 		})
 
 		-- configure golang server
-		lspconfig["gopls"].setup({
+		cfg("gopls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			cmd = { "gopls" },
@@ -159,7 +160,7 @@ return {
 		})
 
 		-- configure lua server (with special settings)
-		lspconfig["lua_ls"].setup({
+		cfg("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = { -- custom settings for lua
@@ -180,28 +181,27 @@ return {
 		})
 
 		-- configure terraform
-		lspconfig["terraformls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-      filetypes = { 'terraform', 'terraform-vars', 'tf' },
-      root_dir = function(dirpath)
-        return util.root_pattern(".terraform", ".git")(dirpath) or util.path.dirname(dirpath)
-      end,
-		})
+		-- cfg.terraformls({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	filetypes = { "terraform", "terraform-vars", "tf" },
+		-- 	root_dir = function(dirpath)
+		-- 		return util.root_pattern(".terraform", ".git")(dirpath) or util.path.dirname(dirpath)
+		-- 	end,
+		-- })
 
-    -- configure python server
-		lspconfig["yamlls"].setup({
+		-- configure yaml
+		cfg("yamlls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "yaml" },
 		})
 
-  --   -- configure helm
+		--   -- configure helm
 		-- lspconfig["helm-ls"].setup({
 		-- 	capabilities = capabilities,
 		-- 	on_attach = on_attach,
-  --     filetypes = { 'helmfile', 'yaml' },
+		--     filetypes = { 'helmfile', 'yaml' },
 		-- })
-
 	end,
 }

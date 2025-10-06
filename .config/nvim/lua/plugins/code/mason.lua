@@ -66,7 +66,7 @@ return {
 				"golines", -- go format fix long lines
 				"golangci-lint", -- golangcilint
 				"delve", -- go debugger
-        "tflint", -- terraform lint
+				"tflint", -- terraform lint
 			},
 		})
 	end,
