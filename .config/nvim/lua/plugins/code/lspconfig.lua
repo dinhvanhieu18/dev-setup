@@ -7,7 +7,7 @@ return {
 	},
 	config = function()
 		-- import lspconfig plugin
-		-- local lspconfig = require("lspconfig")
+		-- require("lspconfig")
 
 		local util = require("lspconfig/util")
 
@@ -72,9 +72,9 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		local cfg = vim.lsp.config
+		-- local cfg = vim.lsp.config
 		-- configure html server
-		cfg("html", {
+		vim.lsp.config("html", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -86,7 +86,7 @@ return {
 		-- })
 
 		-- configure css server
-		cfg("cssls", {
+		vim.lsp.config("cssls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -98,7 +98,7 @@ return {
 		-- })
 
 		-- configure svelte server
-		cfg("svelte", {
+		vim.lsp.config("svelte", {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
@@ -135,19 +135,19 @@ return {
 		-- })
 
 		-- configure python server
-		cfg("pyright", {
+		vim.lsp.config("pyright", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "python" },
 		})
 
 		-- configure golang server
-		cfg("gopls", {
+		vim.lsp.config("gopls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			cmd = { "gopls" },
 			filetypes = { "go", "gomod", "gowork", "gotmpl" },
-			root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+			-- root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 			settings = {
 				gopls = {
 					completeUnimported = true,
@@ -160,7 +160,7 @@ return {
 		})
 
 		-- configure lua server (with special settings)
-		cfg("lua_ls", {
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = { -- custom settings for lua
@@ -191,7 +191,7 @@ return {
 		-- })
 
 		-- configure yaml
-		cfg("yamlls", {
+		vim.lsp.config("yamlls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "yaml" },
@@ -203,5 +203,19 @@ return {
 		-- 	on_attach = on_attach,
 		--     filetypes = { 'helmfile', 'yaml' },
 		-- })
+
+		-- local servers = {
+		-- 	"html",
+		-- 	"cssls",
+		-- 	"svelte",
+		-- 	"pyright",
+		-- 	"gopls",
+		-- 	"lua_ls",
+		-- 	"yamlls",
+		-- }
+		--
+		-- for _, s in ipairs(servers) do
+		-- 	vim.lsp.enable(s)
+		-- end
 	end,
 }
