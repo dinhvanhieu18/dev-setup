@@ -1,0 +1,14 @@
+# keyboard seat1
+SUBSYSTEM=="input", ENV{ID_INPUT_KEYBOARD}=="1", ATTRS{idVendor}=="2a7a", ATTRS{idProduct}=="9597", ENV{ID_SEAT}="seat1", TAG+="seat"
+
+# mouse seat1
+SUBSYSTEM=="input", ENV{ID_INPUT_MOUSE}=="1", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c52f", ENV{ID_SEAT}="seat1", TAG+="seat"
+
+# GPU R5 430 (AMD) for seat1
+SUBSYSTEM=="drm", KERNEL=="card*", ENV{ID_PATH}=="pci-0000:04:00.0", TAG+="seat", ENV{ID_SEAT}="seat1"
+
+# USB for seat1
+SUBSYSTEM=="usb", ATTR{idProduct}=="0001", ATTR{idVendor}=="0a12", TAG+="seat1", ENV{ID_SEAT}="seat1"
+
+# Bluetooth adapter (UGREEN BT5.4) for seat1 - must explicitly tag bluetooth subsystem
+SUBSYSTEM=="bluetooth", ATTRS{idVendor}=="0a12", ATTRS{idProduct}=="0001", TAG+="seat1", ENV{ID_SEAT}="seat1"
