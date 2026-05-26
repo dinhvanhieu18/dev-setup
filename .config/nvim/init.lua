@@ -17,6 +17,7 @@ require("lazy").setup({
 	{ import = "plugins.base" },
 	{ import = "plugins.code" },
 	{ import = "plugins.funny" },
+	{ import = "plugins.ai" },
 }, {
 	install = {
 		colorscheme = { "nightfly" },

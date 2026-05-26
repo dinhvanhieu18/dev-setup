@@ -40,7 +40,7 @@ return {
 				"jsonls",
 				"yamlls",
 				"terraformls",
-				"bzl",
+				-- "bzl",
 				"sqlls",
 				-- "remark_ls",
 				"helm_ls",
