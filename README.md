@@ -111,3 +111,6 @@ Config apt proxy neu can
 Config curl proxy ney can: curl -x proxy --proxy-user ...
 Config apt proxy neu can
 Config curl proxy ney can: curl -x proxy --proxy-user ...
+
+
+Test mirror
